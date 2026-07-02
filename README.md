@@ -1,4 +1,5 @@
-# record-demo-agent-skill — let your coding agent record a feature demo
+# record-demo-agent-skill
+### let your coding agent record a feature demo
 
 Ask your AI coding agent to **"record a video of what you implemented"** and it will
 drive your running app in a real browser and produce a short screen-recording, entirely on your machine. 
