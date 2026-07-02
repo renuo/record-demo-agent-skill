@@ -140,6 +140,24 @@ node "$SKILL/record.mjs" --url http://localhost:3000 --steps tmp/steps.json --ou
 The step being executed is logged to stderr, which helps you spot a wrong
 selector. If a step fails, fix `tmp/steps.json` and re-run.
 
+### Starting already logged in (skip the login flow in the video)
+
+If the app requires authentication and you do not want the login steps to appear
+in the recording, pre-authenticate the browser context instead of scripting the
+login as steps:
+
+1. Log in once headlessly with Playwright and save the session:
+   `const ctx = await browser.newContext(); /* … perform login … */ await ctx.storageState({ path: "tmp/storage_state.json" });`
+2. Point the recorder at that state, so it opens already authenticated:
+
+   ```bash
+   RECORD_STORAGE_STATE=tmp/storage_state.json \
+     node "$SKILL/record.mjs" --url http://localhost:3000 --steps tmp/steps.json --out tmp/demo.webm
+   ```
+
+   (`--storage tmp/storage_state.json` works too.) Your first step can then
+   `goto` the feature page directly. Delete the storage-state file during cleanup.
+
 ## 7. Post-process and clean up
 
 ```bash

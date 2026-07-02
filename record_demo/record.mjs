@@ -7,6 +7,12 @@
 // Usage:
 //   node record.mjs --url http://localhost:3000 --steps steps.json --out demo.webm
 //
+// To start the recording already authenticated (skip showing the login flow in
+// the video), pass a Playwright storage-state file via --storage <file> or the
+// RECORD_STORAGE_STATE env var. Produce it by logging in once and calling
+// `context.storageState({ path })`; the recording context is then created with
+// those cookies/localStorage already set.
+//
 // steps.json format:
 //   {
 //     "viewport": { "width": 1280, "height": 800 },   // optional
@@ -117,8 +123,10 @@ async function scroll(page, to) {
 }
 
 const browser = await chromium.launch();
+const storageState = process.env.RECORD_STORAGE_STATE || args.storage;
 const context = await browser.newContext({
   viewport,
+  ...(storageState ? { storageState } : {}),
   recordVideo: { dir: dirname(outPath), size: viewport },
 });
 const page = await context.newPage();
