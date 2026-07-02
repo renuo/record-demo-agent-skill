@@ -133,13 +133,11 @@ node record.mjs --url "file://$PWD/../examples/smoke/index.html" \
 bash postprocess.sh /tmp/demo.webm /tmp/demo.mp4 2 60   # requires ffmpeg
 ```
 
-You should get a short video showing the button being clicked and the page
-scrolling.
+You should get a short video showing the button being clicked and the page scrolling.
 
 ## Limitations
 
-- **Functional recording**, not the full "Screen Studio" look — no motion zooms,
-  gradient background, or cursor smoothing (yet).
+- **Functional recording**, not the full "Screen Studio" look: no motion zooms, gradient background, or cursor smoothing (yet).
 - On minimal Linux images, `npx playwright install chromium` may need system libs;
   use `npx playwright install --with-deps chromium` (requires root).
 - The recorder captures the browser viewport only, not OS-level windows.
