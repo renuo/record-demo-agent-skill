@@ -1,0 +1,4 @@
+# On-demand install artifacts and recordings — never committed or shipped into workspaces.
+node_modules/
+*.webm
+*.mp4

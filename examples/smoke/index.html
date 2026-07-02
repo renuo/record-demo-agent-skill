@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>record_demo smoke test</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 40px; }
+      button { padding: 12px 20px; font-size: 18px; cursor: pointer; }
+      #out { margin-top: 20px; font-size: 24px; color: green; }
+      .tall { height: 1500px; }
+    </style>
+  </head>
+  <body>
+    <h1>Feature demo page</h1>
+    <button id="go">Run feature</button>
+    <div id="out"></div>
+    <div class="tall"></div>
+    <script>
+      document.getElementById("go").onclick = () => {
+        document.getElementById("out").textContent = "Done!";
+      };
+    </script>
+  </body>
+</html>

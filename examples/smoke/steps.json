@@ -1,0 +1,8 @@
+{
+  "viewport": { "width": 1000, "height": 700 },
+  "steps": [
+    { "action": "click", "text": "Run feature" },
+    { "action": "waitForSelector", "selector": "#out" },
+    { "action": "scroll", "to": "bottom" }
+  ]
+}

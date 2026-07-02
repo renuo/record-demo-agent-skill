@@ -1,0 +1,5 @@
+# Install artifacts and recordings — never committed.
+node_modules/
+*.webm
+*.mp4
+.DS_Store
